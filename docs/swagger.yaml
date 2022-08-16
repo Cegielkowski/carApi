@@ -1,0 +1,143 @@
+definitions:
+  request.CreateCarReq:
+    properties:
+      make:
+        type: string
+      model:
+        type: string
+      package:
+        type: string
+      color:
+        type: string
+      year:
+        type: integer
+      category:
+        type: string
+      mileage:
+        type: integer
+      price:
+        type: integer
+      identification:
+        type: string
+    type: object
+  request.UpdateCarReq:
+    properties:
+      make:
+        type: string
+      model:
+        type: string
+      package:
+        type: string
+      color:
+        type: string
+      year:
+        type: integer
+      category:
+        type: string
+      mileage:
+        type: integer
+      price:
+        type: integer
+      identification:
+        type: string
+    type: object
+info:
+  contact: {}
+  termsOfService: http://swagger.io/terms/
+  title: Go Boilerplate
+  version: 1.0.0
+paths:
+  /api/v1/cars:
+    get:
+      consumes:
+      - application/json
+      description: Fetch Car
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Fetch Car
+      tags:
+      - Cars
+    post:
+      consumes:
+      - application/json
+      description: Create Car
+      parameters:
+      - description: Car to create
+        in: body
+        name: car
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateCarReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Create Car
+      tags:
+      - Cars
+  /api/v1/cars/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Car
+      parameters:
+      - description: car id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Delete Car
+      tags:
+      - Cars
+    get:
+      consumes:
+      - application/json
+      description: Get Car
+      parameters:
+      - description: car id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Get Car
+      tags:
+      - Cars
+    put:
+      consumes:
+      - application/json
+      description: Update Car
+      parameters:
+      - description: car id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Car to update
+        in: body
+        name: car
+        required: true
+        schema:
+          $ref: '#/definitions/request.UpdateCarReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Update Car
+      tags:
+      - Cars
+swagger: "2.0"
